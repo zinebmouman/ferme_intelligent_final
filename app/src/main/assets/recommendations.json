@@ -1,0 +1,63 @@
+
+{
+  "Tomato___healthy": {
+    "status": "Saine",
+    "description": "La plante est en bonne santé.",
+    "recommendation": "Continuez à bien l’arroser, assurez une bonne lumière et surveillez régulièrement l’apparition de taches."
+  },
+  "Tomato___Early_blight": {
+    "status": "Malade",
+    "description": "Maladie fongique qui cause des taches sombres sur les feuilles.",
+    "recommendation": "Enlevez les feuilles abîmées, aérez la plante et utilisez un fongicide naturel comme le cuivre."
+  },
+  "Tomato___Late_blight": {
+    "status": "Malade",
+    "description": "Maladie grave qui noircit les feuilles et les tiges.",
+    "recommendation": "Supprimez les parties infectées, évitez l’humidité, utilisez un fongicide adapté."
+  },
+  "Tomato___Leaf_Mold": {
+    "status": "Malade",
+    "description": "Champignon qui fait des taches jaunes sur le dessus des feuilles.",
+    "recommendation": "Gardez une bonne aération, évitez l’excès d’eau et appliquez un fongicide."
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "status": "Malade",
+    "description": "Petites taches circulaires causées par un champignon.",
+    "recommendation": "Coupez les feuilles atteintes et utilisez un traitement antifongique doux."
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "status": "Malade",
+    "description": "Petits acariens qui affaiblissent la plante.",
+    "recommendation": "Utilisez de l’huile de neem ou du savon insecticide. Gardez l’humidité."
+  },
+  "Tomato___Target_Spot": {
+    "status": "Malade",
+    "description": "Taches rondes sombres avec un centre clair.",
+    "recommendation": "Utilisez un fongicide et évitez de mouiller les feuilles lors de l’arrosage."
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "status": "Malade",
+    "description": "Feuilles qui s’enroulent vers le haut et jaunissent.",
+    "recommendation": "Enlevez les plantes très atteintes et protégez des insectes avec un filet."
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "status": "Malade",
+    "description": "Taches claires irrégulières sur les feuilles.",
+    "recommendation": "Évitez de toucher les plantes infectées, désinfectez les outils et éliminez les plantes malades."
+  },
+  "Potato___healthy": {
+    "status": "Saine",
+    "description": "La plante est en bonne santé.",
+    "recommendation": "Continuez les soins habituels et surveillez les signes de maladie."
+  },
+  "Potato___Early_blight": {
+    "status": "Malade",
+    "description": "Taches brunes concentriques sur les feuilles.",
+    "recommendation": "Retirez les feuilles touchées et utilisez un fongicide bio."
+  },
+  "Potato___Late_blight": {
+    "status": "Malade",
+    "description": "Taches sombres irrégulières, souvent après la pluie.",
+    "recommendation": "Détruisez les plantes infectées, évitez l’arrosage par le haut, traitez avec un fongicide."
+  }
+}

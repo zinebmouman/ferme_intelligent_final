@@ -1,0 +1,6 @@
+<!-- res/values/styles.xml -->
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- personnalisation -->
+    </style>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "993424708401",
+    "project_id": "ferme-intelligente-bea3f",
+    "storage_bucket": "ferme-intelligente-bea3f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993424708401:android:7e5ae93ae329b53fe45610",
+        "android_client_info": {
+          "package_name": "com.example.ferme_intelligente"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuG__5uW8ZCXLjIJXps9lVZv0uUX037tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

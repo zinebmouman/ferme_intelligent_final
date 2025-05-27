@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".Activities.DashboardActivity">
+
+    <!-- Onglets -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/green_700"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btnDashboard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dashboard"
+            android:textColor="@color/white"
+            android:background="@drawable/tab_selected"/>
+
+        <Button
+            android:id="@+id/btnData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Data"
+            android:textColor="@color/white"
+            android:background="@drawable/tab_unselected"/>
+    </LinearLayout>
+
+    <!-- Carte blanche englobante pour Dashboard et Data -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Vue Dashboard (visible par défaut) -->
+        <ScrollView
+            android:id="@+id/dashboardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:fillViewport="true"
+            android:background="@drawable/tab_unselected"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Titre -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tableau de bord"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Carte pour la température -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Température (°C)"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/tempChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Carte pour l'humidité -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_marginBottom="24dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Humidité (%)"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/humidityChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Carte pour l'humidité du sol -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="État du sol"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/black"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/soilChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:id="@+id/tvRecordingTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Temps d'enregistrement : --"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:padding="12dp"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:layout_margin="8dp"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:id="@+id/tvWaterVolume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Volume d'eau consommé : -- L"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:padding="12dp"/>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Vue Data (invisible par défaut) -->
+        <ScrollView
+            android:id="@+id/dataView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:fillViewport="true"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/dataContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dernières valeurs enregistrées"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Température avec thermomètre -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:background="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <!-- Thermomètre -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <com.example.ferme_intelligente.views.ThermometerView
+                                android:id="@+id/thermometerView"
+                                android:layout_width="100dp"
+                                android:layout_height="300dp"
+                                android:layout_margin="16dp" />
+
+                            <TextView
+                                android:id="@+id/tvTempValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--°C"
+                                android:textSize="18sp"
+                                android:textColor="@android:color/black"/>
+                        </LinearLayout>
+
+                        <!-- Valeur de température -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvLastTemp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Température actuelle"
+                                android:textSize="18sp"
+                                android:textColor="@android:color/black"
+                                android:layout_marginBottom="16dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Min: 0°C"
+                                android:textSize="16sp"
+                                android:textColor="@android:color/black"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Max: 50°C"
+                                android:textSize="16sp"
+                                android:textColor="@android:color/black"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Humidité avec diagramme circulaire -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:background="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <!-- Diagramme circulaire -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <com.github.mikephil.charting.charts.PieChart
+                                android:id="@+id/pieHumidity"
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                android:layout_margin="16dp" />
+
+                            <TextView
+                                android:id="@+id/tvHumidityValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--%"
+                                android:textSize="18sp"
+                                android:textColor="@android:color/black"/>
+                        </LinearLayout>
+
+                        <!-- Valeur d'humidité -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvLastHumidity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Humidité d'ére"
+                                android:textSize="18sp"
+                                android:textColor="@android:color/black"
+                                android:layout_marginBottom="16dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Min: 0%"
+                                android:textSize="16sp"
+                                android:textColor="@android:color/black"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Max: 100%"
+                                android:textSize="16sp"
+                                android:textColor="@android:color/black"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="12dp"
+                        android:gravity="center_vertical">
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/pieHumiditysol"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_margin="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvLastSoil"
+                            android:layout_width="111dp"
+                            android:layout_height="wrap_content"
+                            android:padding="12dp"
+                            android:text="État du sol: --"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="12dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvLastWaterVolume"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Volume d'eau: -- L"
+                            android:textSize="18sp"
+                            android:textColor="@android:color/black"/>
+
+                        <ImageView
+                            android:id="@+id/imgVolumeStatus"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginStart="8dp"
+                            android:contentDescription="Statut humidité sol"
+                            android:src="@drawable/img" /> <!-- ic_soil_dry ou ic_soil_wet selon l'état -->
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/white">
+
+                    <TextView
+                        android:id="@+id/tvLastUpdateTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dernière mise à jour: --"
+                        android:textSize="14sp"
+                        android:padding="12dp"
+                        android:textColor="@android:color/black"/>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>

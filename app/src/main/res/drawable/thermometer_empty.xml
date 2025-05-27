@@ -1,0 +1,28 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fond du thermomètre (gris) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0" />
+            <corners android:radius="4dp" />
+            <size android:width="16dp" android:height="100dp" />
+        </shape>
+    </item>
+
+    <!-- Remplissage (rouge, sera ajusté en code) -->
+    <item
+        android:id="@+id/thermometer_fill"
+        android:top="50dp"> <!-- Ajuster "top" pour changer le niveau -->
+        <shape android:shape="rectangle">
+            <solid android:color="#FF0000" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+
+    <!-- Bulbe du thermomètre (bas) -->
+    <item android:top="90dp">
+        <shape android:shape="oval">
+            <solid android:color="#E0E0E0" />
+            <size android:width="24dp" android:height="24dp" />
+        </shape>
+    </item>
+</layer-list>
