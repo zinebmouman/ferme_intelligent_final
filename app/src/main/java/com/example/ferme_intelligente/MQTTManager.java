@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 public class MQTTManager {
     private Mqtt3AsyncClient mqttClient;
-    private final String brokerHost = "10.0.2.2";
+    private final String brokerHost = "192.168.137.47";
     private final String temperatureTopic = "topic/temperature";
     private final String plantStateTopic = "plante/etat";
     private final Consumer<String> messageCallback;

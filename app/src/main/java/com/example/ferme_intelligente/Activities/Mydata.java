@@ -2,9 +2,9 @@ package com.example.ferme_intelligente.Activities;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ferme_intelligente.MQTTManager;
 import com.example.ferme_intelligente.R;
@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Mydata extends AppCompatActivity {
+public class Mydata extends BaseActivity {
     private TextView textViewData;
     private MQTTManager mqttManager;
     private FirebaseFirestore db;
@@ -42,7 +42,10 @@ public class Mydata extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mydata);
+
+        // Inflater le contenu dans le fragment_container de BaseActivity
+        FrameLayout container = findViewById(R.id.fragment_container);
+        LayoutInflater.from(this).inflate(R.layout.activity_mydata, container, true);
 
         textViewData = findViewById(R.id.textViewData);
         db = FirebaseFirestore.getInstance();
@@ -327,14 +330,14 @@ public class Mydata extends AppCompatActivity {
                         // Exemple: si le status contient "Pompe en cours", la pompe est ON
                         if (status.toLowerCase().contains("pompe en cours")) {
                             if (!pumpIsOn) {
-                                // pompe vient de s’allumer
+                                // pompe vient de s'allumer
                                 pumpIsOn = true;
                                 startTime = collectionTime;
                             }
                         } else {
                             // la pompe est considérée éteinte (status différent)
                             if (pumpIsOn && startTime != null) {
-                                // pompe s’éteint -> calcul intervalle
+                                // pompe s'éteint -> calcul intervalle
                                 totalPumpOnTime += (collectionTime - startTime);
                                 pumpIsOn = false;
                                 startTime = null;
@@ -342,7 +345,7 @@ public class Mydata extends AppCompatActivity {
                         }
                     }
 
-                    // Si la pompe est toujours ON à la fin (pas d’état OFF enregistré)
+                    // Si la pompe est toujours ON à la fin (pas d'état OFF enregistré)
                     if (pumpIsOn && startTime != null) {
                         // calculer jusqu'à maintenant
                         totalPumpOnTime += (System.currentTimeMillis() - startTime);

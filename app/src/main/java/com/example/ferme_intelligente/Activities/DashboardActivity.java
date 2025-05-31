@@ -5,11 +5,11 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ferme_intelligente.MQTTManager;
 import com.example.ferme_intelligente.R;
@@ -31,7 +31,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.example.ferme_intelligente.views.ThermometerView;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends BaseActivity {
 
     private static final String TAG = "DashboardActivity";
 
@@ -61,7 +61,13 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+
+        // Inflater le contenu dans le fragment_container de BaseActivity
+        FrameLayout container = findViewById(R.id.fragment_container);
+        LayoutInflater.from(this).inflate(R.layout.activity_dashboard, container, true);
+
+        // Set the selected item in bottom navigation
+        bottomNavigationView.setSelectedItemId(R.id.navigation_dashboard);
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();

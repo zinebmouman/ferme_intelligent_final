@@ -84,20 +84,20 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnConsulterEtat"
-                    android:layout_width="wrap_content"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="69dp"
                     android:layout_height="wrap_content"
                     android:text="Hint"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     app:backgroundTint="@color/green_700"
-                    android:textColor="@color/white"
-                    app:cornerRadius="16dp"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                    app:cornerRadius="16dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSupprimer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Supprimer"
+                    android:text="Delete"
                     android:textSize="12sp"
                     app:backgroundTint="@color/red"
                     android:textColor="@color/white"

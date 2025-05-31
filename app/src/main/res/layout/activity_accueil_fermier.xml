@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,12 +13,12 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="74dp"
             android:background="@color/green_700"
-            app:title="ferme_intelligent"
-            app:titleTextColor="@android:color/white"
             app:titleCentered="true"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            app:title="ferme_intelligent"
+            app:titleTextColor="@android:color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

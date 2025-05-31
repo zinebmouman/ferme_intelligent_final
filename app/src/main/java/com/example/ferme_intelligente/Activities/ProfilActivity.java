@@ -3,14 +3,14 @@ package com.example.ferme_intelligente.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ferme_intelligente.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfilActivity extends AppCompatActivity {
+public class ProfilActivity extends BaseActivity {
 
     private TextView tvFullName ,tvNom, tvPrenom, tvContact, tvLocalisation, tvEmail;
     private EditText editNom, editPrenom, editContact, editLocalisation;
@@ -34,11 +34,17 @@ public class ProfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profil);
+
+        // Inflater le contenu dans le fragment_container de BaseActivity
+        FrameLayout container = findViewById(R.id.fragment_container);
+        LayoutInflater.from(this).inflate(R.layout.activity_profil, container, true);
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         currentUser = auth.getCurrentUser();
+
+        // Set the selected item in bottom navigation
+        bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
 
         // Initialisation des vues
         tvNom = findViewById(R.id.tvNom);

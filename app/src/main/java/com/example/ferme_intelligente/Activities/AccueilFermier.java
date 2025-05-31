@@ -2,21 +2,26 @@ package com.example.ferme_intelligente.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.FrameLayout;
 
 import com.example.ferme_intelligente.R;
 
-public class AccueilFermier extends AppCompatActivity {
+public class AccueilFermier extends BaseActivity {
 
     private Button btnConsulterPlantes, btnAjouterPlante, btnConsulterAlertes, btnModifierProfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_accueil_fermier);
+
+        // Inflater votre contenu dans le fragment_container
+        FrameLayout container = findViewById(R.id.fragment_container);
+        LayoutInflater.from(this).inflate(R.layout.activity_accueil_fermier, container, true);
+
+        // Set the selected item in bottom navigation
+        bottomNavigationView.setSelectedItemId(R.id.navigation_accueil);
 
         // Liaison avec les boutons du layout XML
         btnConsulterPlantes = findViewById(R.id.btnConsulterPlantes);

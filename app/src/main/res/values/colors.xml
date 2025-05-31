@@ -24,4 +24,8 @@
     <color name="green_200">#A5D6A7</color>
     <color name="green_500">#4CAF50</color>
     <color name="green_700">#388E3C</color>
+
+    <color name="alerte_temperature">#30FF5252</color> <!-- Rouge clair -->
+    <color name="alerte_maladie">#30FF9800</color>   <!-- Orange clair -->
+    <color name="alerte_pompe">#304CAF50</color>     <!-- Vert clair -->
 </resources>

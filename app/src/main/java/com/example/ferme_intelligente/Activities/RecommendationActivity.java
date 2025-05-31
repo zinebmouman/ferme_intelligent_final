@@ -3,9 +3,11 @@ package com.example.ferme_intelligente.Activities;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ferme_intelligente.R;
 import com.google.firebase.firestore.*;
 import org.json.JSONObject;
@@ -15,7 +17,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class RecommendationActivity extends AppCompatActivity {
+public class RecommendationActivity extends BaseActivity {
 
     private TextView textEtat, textRecommandation;
     private FirebaseFirestore db;
@@ -28,7 +30,10 @@ public class RecommendationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommendation);
+
+        // Inflater le contenu dans le fragment_container de BaseActivity
+        FrameLayout container = findViewById(R.id.fragment_container);
+        LayoutInflater.from(this).inflate(R.layout.activity_recommendation, container, true);
 
         textEtat = findViewById(R.id.textEtat);
         textRecommandation = findViewById(R.id.textRecommandation);
@@ -101,8 +106,6 @@ public class RecommendationActivity extends AppCompatActivity {
                                                         Log.d(TAG, "Dernier état de la plante " + planteId + ": " + predictedState);
 
                                                         if (predictedState != null) {
-                                                            textEtat.append("Fermier : " + userEmail + "\n");
-                                                            textEtat.append("Plante : " + planteId + "\n");
                                                             textEtat.append("État détecté : " + predictedState + "\n\n");
 
                                                             showRecommendation(predictedState);

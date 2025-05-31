@@ -11,11 +11,12 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:layout_height="74dp"
+            android:background="@color/green_700"
+            app:titleCentered="true"
+            android:elevation="4dp"
             app:title="Mes Alertes"
             app:titleTextColor="@color/white" />
 

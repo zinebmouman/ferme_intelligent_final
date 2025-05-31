@@ -11,11 +11,12 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:layout_height="74dp"
+            android:background="@color/green_700"
+            app:titleCentered="true"
+            android:elevation="4dp"
             app:title="État de la plante"
             app:titleTextColor="@android:color/white" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -31,14 +32,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textEtat"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="État de la plante"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#000000" />
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:backgroundTint="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/textEtat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="État de la plante"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red" />
+            </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -55,7 +67,8 @@
                     android:layout_height="wrap_content"
                     android:text="Recommandation ici"
                     android:textSize="16sp"
-                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:textColor="@color/teal_700"
                     android:padding="16dp" />
             </androidx.cardview.widget.CardView>
 
